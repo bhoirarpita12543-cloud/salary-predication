@@ -21,13 +21,14 @@ education = st.selectbox("Education Level",encoder["Education Level"].classes_)
 job_title = st.selectbox("Job Title",encoder["Job Title"].classes_)
 years_of_experience = st.number_input("Years of Experience",0,20)
 
-df = pd.dataFrame({
-    "Age":[age],
-    "Gender":[gender],
-    "Education Level":[education],
-    "Job Title":[job_title],
-    "Years of Experience":[years_of_experience]
+df = pd.DataFrame({
+    "Age": [age],
+    "Gender": [gender],
+    "Education Level": [education],
+    "Job Title": [job_title],
+    "Years of Experience": [years_of_experience]
 })
+
 
 if st.button("Predict"):
     for col in encoder:

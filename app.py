@@ -11,8 +11,9 @@ import streamlit as st
 import pandas as pd
 import joblib
 
-model = joblib.load("salary_prediction_model(1).pkl")
-encoder = joblib.load("label_encoder(1).pkl")
+model = joblib.load("salary_prediction_model.pkl")
+encoder = joblib.load("label_encoder.pkl")
+
 
 st.title("Salary Prediction app")
 
@@ -30,10 +31,10 @@ df = pd.dataFrame({
     "Years of Experience":[years_of_experience]
 })
 
-
 if st.button("Predict"):
-  for col in encoder:
-    df[col] = encoder[col].transform(df[col])
+    for col in encoder:
+        df[col] = encoder[col].transform(df[col])
 
-    predication = model.predict(df)
-    st.success(f"predicted salary: {predication[0]:,.2f}")
+    prediction = model.predict(df)
+    st.success(f"Predicted Salary: {prediction[0]:,.2f}")
+
